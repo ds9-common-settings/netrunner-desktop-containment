@@ -2,4 +2,4 @@
 patched folderview containment
 
 * remove "hamburger"
-* rename "Folderview" to "Netrunner Desktop"
+* rename "Folder" to "Netrunner Desktop"
