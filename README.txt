@@ -2,11 +2,8 @@
 patched folderview containment
 
 
-* remove "hamburger": 
- override desktop toolbox.desktop file with version setting Hidden=true
- /usr/share/kservices5/plasma-package-org.kde.desktoptoolbox.desktop
- /usr/share/plasma/packages/org.kde.desktoptoolbox/metadata.desktop
-
+apply patches from https://github.com/netrunner/netrunner-patches/ :
+* 
 
 * rename "Folder" to "Netrunner Desktop":
  override folder.desktop file with version setting different name
