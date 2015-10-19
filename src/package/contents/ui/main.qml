@@ -26,7 +26,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.draganddrop 2.0 as DragDrop
 
-import org.kde.private.netrunnerdesktop.desktop 0.1 as Desktop
+import org.kde.private.desktopcontainment.desktop 0.1 as Desktop
 
 import "LayoutManager.js" as LayoutManager
 
@@ -60,7 +60,7 @@ DragDrop.DropArea {
         return height
     }
 
-    property bool isFolder: (plasmoid.pluginName == "org.kde.netrunnerdesktop")
+    property bool isFolder: true
     property bool isContainment: ("containmentType" in plasmoid)
     property bool isPopup: (plasmoid.location != PlasmaCore.Types.Floating)
 

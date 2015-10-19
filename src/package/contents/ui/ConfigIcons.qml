@@ -28,8 +28,8 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.kquickcontrolsaddons 2.0
 
-import org.kde.private.netrunnerdesktop.desktop 0.1 as Desktop
-import org.kde.private.netrunnerdesktop.folder 0.1 as Folder
+import org.kde.private.desktopcontainment.desktop 0.1 as Desktop
+import org.kde.private.desktopcontainment.folder 0.1 as Folder
 
 Item {
     id: configIcons

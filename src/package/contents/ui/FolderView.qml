@@ -26,7 +26,7 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 import org.kde.plasma.extras 2.0 as PlasmaExtras
 import org.kde.kquickcontrolsaddons 2.0
 
-import org.kde.private.netrunnerdesktop.folder 0.1 as Folder
+import org.kde.private.desktopcontainment.folder 0.1 as Folder
 import "FolderTools.js" as FolderTools
 
 Item {
@@ -309,7 +309,7 @@ Item {
                     }
 
                     dir.pinSelection();
-                    main.rubberBand = Qt.createQmlObject("import QtQuick 2.0; import org.kde.private.netrunnerdesktop.folder 0.1 as Folder;"
+                    main.rubberBand = Qt.createQmlObject("import QtQuick 2.0; import org.kde.private.desktopcontainment.folder 0.1 as Folder;"
                         + "Folder.RubberBand { x: " + cPress.x + "; y: " + cPress.y + "; width: 0; height: 0; z: 99999; }",
                         gridView.contentItem);
                     gridView.interactive = false;
