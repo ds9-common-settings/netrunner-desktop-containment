@@ -340,6 +340,10 @@ DragDrop.DropArea {
     Desktop.SystemSettings {
         id: systemSettings
     }
+    
+    Desktop.EventForge {
+        id: eventForge
+    }
 
     MouseArea { // unfocus any plasmoid when clicking empty desktop area
         anchors.fill: parent
