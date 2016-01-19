@@ -13,6 +13,7 @@ X-Plasma-RemoteLocation=
 X-Plasma-RequiredExtensions=LaunchApp,http,localio,networkio
 X-Plasma-ContainmentType=Desktop
 X-Plasma-DropMimeTypes=inode/directory
+X-Plasma-Provides=org.kde.plasma.filemanagement
 
 X-KDE-PluginInfo-Author=Eike Hein
 X-KDE-PluginInfo-Email=hein@kde.org
