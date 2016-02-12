@@ -334,7 +334,7 @@ Item {
                             target: frame
                             prefix: "selected"
                         }
-                    },
+                    },/*
                     State {
                         name: "hover"
                         when: hovered && !model.selected
@@ -343,7 +343,7 @@ Item {
                             target: frame
                             prefix: "hover"
                         }
-                    },
+                    },*/
                     State {
                         name: "selected+hover"
                         when: hovered && model.selected
