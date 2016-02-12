@@ -18,6 +18,8 @@
  ***************************************************************************/
 
 import QtQuick 2.4
+import QtGraphicalEffects 1.0
+
 import org.kde.plasma.plasmoid 2.0
 
 import org.kde.plasma.core 2.0 as PlasmaCore
@@ -227,74 +229,23 @@ Item {
                         text: label.text
                     }
 
-                    ShaderEffect {
+                    DropShadow {
                         id: textShadow
 
-                        x: label.x
-                        y: label.y
-
-                        width: label.width + units.smallSpacing * 2
-                        height: label.height + units.smallSpacing * 2
+                        anchors.fill: label
 
                         visible: (root.isContainment && main.GridView.view.isRootView)
 
-                        property variant src: ShaderEffectSource {
-                            wrapMode: ShaderEffectSource.ClampToEdge
+                        horizontalOffset: 2
+                        verticalOffset: 2
 
-                            sourceItem: ShaderEffect {
-                                width: label.width + units.smallSpacing * 2
-                                height: label.height + units.smallSpacing * 2
+                        radius: 9.0
+                        samples: 18
+                        spread: 0.15
 
+                        color: "black"
 
-                                property variant src: ShaderEffectSource {
-                                    sourceItem: label
-                                    sourceRect: Qt.rect(0, 0, label.width + units.smallSpacing * 2, label.height + units.smallSpacing * 2)
-                                    wrapMode: ShaderEffectSource.ClampToEdge
-                                    width: label.width + units.smallSpacing * 2
-                                    height: label.height + units.smallSpacing * 2
-                                }
-
-                                property variant dx: 1.0 / width
-
-                                fragmentShader: "
-                                    varying vec2 qt_TexCoord0;
-                                    uniform sampler2D src;
-                                    uniform float dx;
-                                    void main(void) {
-                                        float tex =
-                                            texture2D(src, qt_TexCoord0 + vec2(-9.32466 * dx, 0)).a * .0170017 +
-                                            texture2D(src, qt_TexCoord0 + vec2(-7.36886 * dx, 0)).a * .0587253 +
-                                            texture2D(src, qt_TexCoord0 + vec2(-5.41537 * dx, 0)).a * .1384730 +
-                                            texture2D(src, qt_TexCoord0 + vec2(-3.46344 * dx, 0)).a * .2229850 +
-                                            texture2D(src, qt_TexCoord0 + vec2(-2.00000 * dx, 0)).a * .1256310 +
-                                            texture2D(src, qt_TexCoord0 + vec2(-1.46344 * dx, 0)).a * .2229850 +
-                                            texture2D(src, qt_TexCoord0 + vec2( 1.41537 * dx, 0)).a * .1384730 +
-                                            texture2D(src, qt_TexCoord0 + vec2( 3.36886 * dx, 0)).a * .0587253 +
-                                            texture2D(src, qt_TexCoord0 + vec2( 5.32466 * dx, 0)).a * .0170017;
-                                        gl_FragColor = vec4(vec3(0), tex * 1.1);
-                                    }"
-                            }
-                        }
-
-                        property variant dy: 1.0 / height
-
-                        fragmentShader: "
-                            varying vec2 qt_TexCoord0;
-                            uniform sampler2D src;
-                            uniform float dy;
-                            void main(void) {
-                                float tex =
-                                    texture2D(src, qt_TexCoord0 + vec2(0, -9.32466 * dy)).a * .0170017 +
-                                    texture2D(src, qt_TexCoord0 + vec2(0, -7.36886 * dy)).a * .0587253 +
-                                    texture2D(src, qt_TexCoord0 + vec2(0, -5.41537 * dy)).a * .1384730 +
-                                    texture2D(src, qt_TexCoord0 + vec2(0, -3.46344 * dy)).a * .2229850 +
-                                    texture2D(src, qt_TexCoord0 + vec2(0, -2.00000 * dy)).a * .1256310 +
-                                    texture2D(src, qt_TexCoord0 + vec2(0, -1.46344 * dy)).a * .2229850 +
-                                    texture2D(src, qt_TexCoord0 + vec2(0,  1.41537 * dy)).a * .1384730 +
-                                    texture2D(src, qt_TexCoord0 + vec2(0,  3.36886 * dy)).a * .0587253 +
-                                    texture2D(src, qt_TexCoord0 + vec2(0,  5.32466 * dy)).a * .0170017;
-                                    gl_FragColor = vec4(vec3(0), tex * 1.1);
-                            }"
+                        source: label
                     }
 
                     PlasmaComponents.Label {
@@ -383,7 +334,7 @@ Item {
                             target: frame
                             prefix: "selected"
                         }
-                    }/*,
+                    },
                     State {
                         name: "hover"
                         when: hovered && !model.selected
@@ -392,7 +343,7 @@ Item {
                             target: frame
                             prefix: "hover"
                         }
-                    }*/,
+                    },
                     State {
                         name: "selected+hover"
                         when: hovered && model.selected
